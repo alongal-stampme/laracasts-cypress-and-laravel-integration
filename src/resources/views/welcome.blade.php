@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Environment: {{ ucwords(app()->environment()) }}
                 </div>
 
                 <div class="links">
