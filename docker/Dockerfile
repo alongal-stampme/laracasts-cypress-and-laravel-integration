@@ -3,6 +3,7 @@ FROM galalon/stamp-me-base-image
 RUN apt-get update
 RUN apt-get install -y nodejs npm
 RUN apt-get install -y libgtk2.0-0 libgtk-3-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+RUN apt-get install php-sqlite3
 
 RUN a2enmod ssl
 
@@ -37,5 +38,7 @@ COPY docker/install-create-project.sh /usr/local/bin/create-project
 RUN chmod +x /usr/local/bin/create-project
 
 WORKDIR /var/www/html/src
+
+RUN npx cypress install
 
 CMD ["/usr/local/bin/start"]
